@@ -145,8 +145,7 @@ echo "" >> ~/.bashrc
 echo "# USERS SETTINGS:" >> ~/.bashrc
 echo "" >> ~/.bashrc
 echo "alias ll='ls -lah' " >> ~/.bashrc
-echo "Start ./bashrc"
-source ~/.bashrc
+echo "Start ./bashrc" `source ~/.bashrc`
 echo "Exit: " `exit`
 
 
