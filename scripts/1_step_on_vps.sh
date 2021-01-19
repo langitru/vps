@@ -27,7 +27,7 @@ apt-get install -y sudo vim htop mc git curl wget nodejs sqlite3 nginx unzip zip
 apt-get install -y libsqlite3-dev python3-pip python3-venv python3-lxml python3-dev python3-pil 
 python3 -m pip install -U pip
 
-# apt-get install -y postgresql postgresql-contrib libpq-dev 
+apt-get install -y postgresql postgresql-contrib libpq-dev 
 
 apt-get install -y python-libxml2 python-libxslt1 python-dev python-pil 
 apt-get install -y tree redis-server gnumeric supervisor tk-dev xz-utils
@@ -77,6 +77,7 @@ echo "PermitRootLogin no"
 echo "" >> /etc/ssh/sshd_config 
 echo "# USERS SETTINGS:" >> /etc/ssh/sshd_config 
 echo "" >> /etc/ssh/sshd_config 
+echo "AllowUsers www $new_user_name" >> /etc/ssh/sshd_config
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config 
 new_port_ssh=""
 read -p "Enter new port for ssh (example: 1234): " new_port_ssh
@@ -123,20 +124,6 @@ echo ""
 
 
 # ********************************************************************
-# Instal zsh:
-# ********************************************************************
-echo "====================="
-echo ""
-echo "Instal zsh:"
-echo ""
-echo "====================="
-apt-get install -y zsh zsh-syntax-highlighting fonts-powerline # install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # install oh-my-zsh
-chsh -s $(which zsh) # Change your default shell
-echo ""
-
-
-# ********************************************************************
 # - - -  FINISH!  - - -
 # ********************************************************************
 echo "====================="
@@ -145,4 +132,3 @@ echo "====================="
 echo "- -   REBOOTING!  - -"
 echo "====================="
 reboot
-exit 0
